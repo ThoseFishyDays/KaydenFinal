@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EXPLORING PLANETS</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="planets-page">
+  <header>
+    <h1>EXPLORING PLANETS</h1>
+    <nav>
+      <a href="planets.html">PLANETS</a>
+      <a href="index.html">HOME</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Planet buttons container -->
+    <div class="planet-buttons">
+      <button aria-label="Mercury"></button>
+      <button aria-label="Venus"></button>
+      <button aria-label="Earth"></button>
+      <button aria-label="Mars"></button>
+      <button aria-label="Jupiter"></button>
+      <button aria-label="Saturn"></button>
+      <button aria-label="Uranus"></button>
+      <button aria-label="Neptune"></button>
+    </div>
+
+    <!-- Description section -->
+    <section class="planet-description">
+      <p>Planet One - Mercury: Mercury is the closest planet to the sun, though it isn’t the hottest, this is due to its lack of atmosphere.</p>
+    </section>
+  </main>
+
+  <!-- Small footer strip -->
+  <footer>
+    <img src="assets/images/ImageOne.jpg" alt="Footer image">
+  </footer>
+
+  <script>
+    (function () {
+      const descriptions = [
+        "Mercury: Mercury is the closest planet to the sun, though it isn’t the hottest, this is due to its lack of atmosphere.",
+        "Venus: Venus is the hottest planet in our solar system. This is due to its thick atmosphere which traps heat inside.",
+        "Earth: Earth is our home, it is the only planet in our solar system that harbors life.",
+        "Mars: Called “The Red Planet” because of its red hue, this is due to its surface consisting of rusted iron particles.",
+        "Jupiter: Jupiter is the largest planet in our solar system, it’s most well known for its big red dot which is actually a huge storm that has been swirling on for eons.",
+        "Saturn: Saturn is most well known for its huge rings, but did you know it also rains diamonds on Saturn?",
+        "Uranus: Uranus the coldest planet in our solar system, but it’s also strange in the fact that it rotates on its side!",
+        "Neptune: Neptune has the strongest winds in the solar system, easily being able to whirl you around the planet if you happen to find yourself there."
+      ];
+
+      const buttons = document.querySelectorAll('.planet-buttons button');
+      const descPara = document.querySelector('.planet-description p');
+
+      function setDesc(i) {
+        descPara.textContent = descriptions[i];
+      }
+
+      buttons.forEach((btn, idx) => {
+        btn.addEventListener('mouseenter', () => setDesc(idx));
+        btn.addEventListener('focus', () => setDesc(idx));
+        btn.addEventListener('touchstart', () => setDesc(idx), { passive: true });
+      });
+
+      document.querySelector('.planet-buttons').addEventListener('mouseleave', () => setDesc(0));
+    })();
+  </script>
+</body>
+</html>
